@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #E8001D;
+  --color-primary-hover: #C8001A;
+  
+  --color-dark: #111111;
+  --color-dark-bg1: #1A1A1A;
+  --color-dark-bg2: #222222;
+  
+  --color-lightbg: #F5F5F5;
+  --color-yellowbadge: #FFD700;
+  
+  --shadow-card: 0 2px 12px rgba(0,0,0,0.08);
+  --shadow-card-hover: 0 8px 24px rgba(0,0,0,0.12);
+  
+  --radius-custom: 4px;
+  
+  --font-inter: 'Inter', sans-serif;
+}
+
+@utility btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: var(--radius-custom);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+@utility btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+  &:hover {
+    background-color: var(--color-primary-hover);
+  }
+}
+
+@utility btn-dark {
+  background-color: var(--color-dark);
+  color: white;
+  &:hover {
+    background-color: #222222;
+  }
+}
+
+@utility btn-outline {
+  border: 1px solid white;
+  color: white;
+  &:hover {
+    background-color: white;
+    color: var(--color-dark);
+  }
+}
+
+@layer base {
+  body {
+    @apply font-inter text-gray-800 bg-white overflow-x-hidden;
+  }
+  
+  a {
+    @apply transition-colors duration-300;
+  }
+}
+
+/* Custom transitions and scroll behaviors */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Floating animation for hero image */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Fade in animation for toast alert */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Line clamp custom classes if needed */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
